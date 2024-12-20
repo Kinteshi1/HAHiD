@@ -1,38 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedModule } from '../../shared/shared.module';
-import { Validators, FormBuilder } from '@angular/forms';
-import { StoreService } from '../../shared/store.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BackendService } from '../../shared/backend.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { StoreService } from '../../shared/store.service';
+import {SharedModule} from "../../shared/shared.module";
 
 @Component({
   selector: 'app-add-data',
-  standalone: true,
-  imports: [SharedModule],
   templateUrl: './add-data.component.html',
-  styleUrls: ['./add-data.component.css']
+  styleUrls: ['./add-data.component.css'],
+  standalone: true,
+  imports: [SharedModule]
 })
 export class AddDataComponent implements OnInit {
-  constructor(private formbuilder: FormBuilder, public storeService: StoreService, private backendService: BackendService, private snackBar: MatSnackBar) { }
+  registrationForm: FormGroup;
 
-  public registrationForm: any;
-
-  ngOnInit(): void {
-    this.registrationForm = this.formbuilder.group({
-      name: ['', [Validators.required]],
-      courseId: ['', Validators.required],
-      birthdate: [null, Validators.required],
+  constructor(
+    private fb: FormBuilder,
+    private backendService: BackendService,
+    public storeService: StoreService
+  ) {
+    this.registrationForm = this.fb.group({
+      name: ['', Validators.required],
+      birthdate: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      newsletter: [false]
+      newsletter: [false],
+      courseId: ['', Validators.required]
     });
   }
 
-  onSubmit() {
+  ngOnInit(): void {
+    this.backendService.getCourses();
+  }
+
+  onSubmit(): void {
     if (this.registrationForm.valid) {
-      this.backendService.addRegistration(this.registrationForm.value, this.storeService.currentPage);
-      this.snackBar.open('Registration successful!', 'Close', {
-        duration: 3000,
-      });
+      console.log(this.registrationForm.value);
     }
   }
 }
