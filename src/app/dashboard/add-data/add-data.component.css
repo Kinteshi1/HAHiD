@@ -2,7 +2,7 @@
   max-width: 100%;
 }
 .row {
-  height: 200px; /* Adjust as needed */
+  height: 250px; /* Adjust as needed */
   display: flex;
   align-items: center;
 }
