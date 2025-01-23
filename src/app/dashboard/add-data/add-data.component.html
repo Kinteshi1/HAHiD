@@ -1,49 +1,49 @@
-<!-- add-data.component.html -->
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-10">
-      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name" required>
-            <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Name is required</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Birthdate</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="birthdate" required>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error *ngIf="registrationForm.get('birthdate')?.hasError('required')">Birthdate is required</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email" required>
-            <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">Email is required</mat-error>
-            <mat-error *ngIf="registrationForm.get('email')?.hasError('email')">Invalid email</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="form-group">
-          <mat-checkbox formControlName="newsletter">Subscribe to Newsletter</mat-checkbox>
-        </div>
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Course</mat-label>
-            <mat-select formControlName="courseId" required>
-              <mat-option *ngFor="let course of storeService.courses" [value]="course.id">{{ course.name }}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="registrationForm.get('courseId')?.hasError('required')">Course is required</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="form-group">
-          <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Register</button>
-        </div>
-      </form>
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="p-4 shadow bg-white rounded">
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" required>
+              <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Name is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Birthdate</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="birthdate" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="registrationForm.get('birthdate')?.hasError('required')">Birthdate is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" required>
+              <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">Email is required</mat-error>
+              <mat-error *ngIf="registrationForm.get('email')?.hasError('email')">Invalid email</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-checkbox formControlName="newsletter">Subscribe to Newsletter</mat-checkbox>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Course</mat-label>
+              <mat-select formControlName="courseId" required>
+                <mat-option *ngFor="let course of storeService.courses" [value]="course.id">{{ course.name }}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="registrationForm.get('courseId')?.hasError('required')">Course is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Register</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
-```
