@@ -1,6 +1,20 @@
-<div>
-    <h1>{{ title }}</h1>
-    <img src={{imagePath}}>&nbsp;&nbsp;
-    <a [routerLink]="['/dashboard']">Dashboard</a>&nbsp;&nbsp;
-    <a [routerLink]="['/about']">About</a>
-</div>
+<mat-toolbar color="primary">
+  <!-- Title -->
+  <span>{{ title }}</span>
+
+  <!-- Image -->
+  <img src={{imagePath}} alt="Logo" class="logo" />
+
+  <!-- Navigation Links -->
+  <span class="spacer"></span> <!-- Pushes links to the right -->
+  <a mat-button [routerLink]="['/dashboard']">Dashboard</a>
+  <a mat-button [routerLink]="['/about']">About</a>
+
+  <!-- Dropdown Menu -->
+  <button mat-button [matMenuTriggerFor]="menu">More</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Option 1</button>
+    <button mat-menu-item>Option 2</button>
+    <button mat-menu-item>Option 3</button>
+  </mat-menu>
+</mat-toolbar>

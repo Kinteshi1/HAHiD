@@ -9,9 +9,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from "@angular/common/http";
-
-
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [],
@@ -26,6 +26,9 @@ import { HttpClientModule } from "@angular/common/http";
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatSnackBarModule,
   ],
   exports: [
     CommonModule,
@@ -38,6 +41,9 @@ import { HttpClientModule } from "@angular/common/http";
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatSnackBarModule,
   ]
 })
 export class SharedModule { }
