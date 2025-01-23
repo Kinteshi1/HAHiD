@@ -12,6 +12,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [],
@@ -29,6 +30,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatToolbarModule,
     MatMenuModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     CommonModule,
@@ -44,6 +46,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatToolbarModule,
     MatMenuModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class SharedModule { }
