@@ -3,6 +3,17 @@ mat-form-field {
   margin-bottom: 1.5rem; /* Add spacing between fields */
 }
 
+mat-error {
+  color: #e53935; /* Bright red for visibility */
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  display: block;
+  margin: 1rem auto; /* Center-align buttons with spacing */
+}
+
 .p-4 {
   padding: 1.5rem; /* Add consistent padding to the card container */
 }
